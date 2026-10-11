@@ -1,0 +1,62 @@
+[
+  {
+    "configuration": "parquet_none",
+    "format": "PARQUET",
+    "codec": "NONE",
+    "bytes_median": 125934498,
+    "write_median_s": 29.59508925101545,
+    "write_min_s": 24.168729666998843,
+    "write_max_s": 31.884774124991964,
+    "query_median_s": 4.301801958004944,
+    "query_min_s": 2.7423853750078706,
+    "query_max_s": 13.730596791996504
+  },
+  {
+    "configuration": "parquet_snappy",
+    "format": "PARQUET",
+    "codec": "SNAPPY",
+    "bytes_median": 71123625,
+    "write_median_s": 25.649129500015988,
+    "write_min_s": 21.41807825100841,
+    "write_max_s": 43.339998082999955,
+    "query_median_s": 3.3457907919946592,
+    "query_min_s": 2.5322747500031255,
+    "query_max_s": 8.788652499992168
+  },
+  {
+    "configuration": "parquet_gzip",
+    "format": "PARQUET",
+    "codec": "GZIP",
+    "bytes_median": 48930794,
+    "write_median_s": 38.40785745899484,
+    "write_min_s": 37.61318354199466,
+    "write_max_s": 38.525090458017075,
+    "query_median_s": 4.159045332999085,
+    "query_min_s": 3.4018115000071703,
+    "query_max_s": 9.386146999997436
+  },
+  {
+    "configuration": "parquet_zstd",
+    "format": "PARQUET",
+    "codec": "ZSTD",
+    "bytes_median": 48775018,
+    "write_median_s": 22.296788334002485,
+    "write_min_s": 20.83165516598092,
+    "write_max_s": 25.516509666995262,
+    "query_median_s": 3.012179416997242,
+    "query_min_s": 2.154011459002504,
+    "query_max_s": 13.226069249998545
+  },
+  {
+    "configuration": "orc_zstd",
+    "format": "ORC",
+    "codec": "ZSTD",
+    "bytes_median": 54407381,
+    "write_median_s": 27.4277250419982,
+    "write_min_s": 22.336974125006236,
+    "write_max_s": 39.55611983401468,
+    "query_median_s": 3.806662791990675,
+    "query_min_s": 2.393678207998164,
+    "query_max_s": 7.585421333002159
+  }
+]

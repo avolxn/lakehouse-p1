@@ -1,0 +1,131 @@
+CREATE SCHEMA IF NOT EXISTS iceberg.bronze
+CREATE SCHEMA IF NOT EXISTS iceberg.silver
+CREATE SCHEMA IF NOT EXISTS iceberg.gold
+CREATE SCHEMA IF NOT EXISTS iceberg.bench
+CREATE SCHEMA IF NOT EXISTS iceberg.demo
+CREATE TABLE iceberg.bronze.customer WITH (format='PARQUET', compression_codec='ZSTD') AS SELECT cus
+CREATE TABLE iceberg.bronze.orders WITH (format='PARQUET', compression_codec='ZSTD') AS SELECT order
+CREATE TABLE iceberg.bronze.lineitem WITH (format='PARQUET', compression_codec='ZSTD') AS SELECT ord
+CREATE TABLE iceberg.silver.order_lines
+CREATE TABLE iceberg.gold.shipping_priority
+DROP TABLE IF EXISTS iceberg.bench.parquet_zstd_customer
+CREATE TABLE iceberg.bench.parquet_zstd_customer WITH (format='PARQUET', compression_codec='ZSTD') A
+DROP TABLE IF EXISTS iceberg.bench.parquet_zstd_orders
+CREATE TABLE iceberg.bench.parquet_zstd_orders WITH (format='PARQUET', compression_codec='ZSTD') AS 
+DROP TABLE IF EXISTS iceberg.bench.parquet_zstd_lineitem
+CREATE TABLE iceberg.bench.parquet_zstd_lineitem WITH (format='PARQUET', compression_codec='ZSTD') A
+DROP TABLE IF EXISTS iceberg.bench.parquet_snappy_customer
+CREATE TABLE iceberg.bench.parquet_snappy_customer WITH (format='PARQUET', compression_codec='SNAPPY
+DROP TABLE IF EXISTS iceberg.bench.parquet_snappy_orders
+CREATE TABLE iceberg.bench.parquet_snappy_orders WITH (format='PARQUET', compression_codec='SNAPPY')
+DROP TABLE IF EXISTS iceberg.bench.parquet_snappy_lineitem
+CREATE TABLE iceberg.bench.parquet_snappy_lineitem WITH (format='PARQUET', compression_codec='SNAPPY
+DROP TABLE IF EXISTS iceberg.bench.parquet_gzip_customer
+CREATE TABLE iceberg.bench.parquet_gzip_customer WITH (format='PARQUET', compression_codec='GZIP') A
+DROP TABLE IF EXISTS iceberg.bench.parquet_gzip_orders
+CREATE TABLE iceberg.bench.parquet_gzip_orders WITH (format='PARQUET', compression_codec='GZIP') AS 
+DROP TABLE IF EXISTS iceberg.bench.parquet_gzip_lineitem
+CREATE TABLE iceberg.bench.parquet_gzip_lineitem WITH (format='PARQUET', compression_codec='GZIP') A
+DROP TABLE IF EXISTS iceberg.bench.orc_zstd_customer
+CREATE TABLE iceberg.bench.orc_zstd_customer WITH (format='ORC', compression_codec='ZSTD') AS SELECT
+DROP TABLE IF EXISTS iceberg.bench.orc_zstd_orders
+CREATE TABLE iceberg.bench.orc_zstd_orders WITH (format='ORC', compression_codec='ZSTD') AS SELECT *
+DROP TABLE IF EXISTS iceberg.bench.orc_zstd_lineitem
+CREATE TABLE iceberg.bench.orc_zstd_lineitem WITH (format='ORC', compression_codec='ZSTD') AS SELECT
+DROP TABLE IF EXISTS iceberg.bench.parquet_none_customer
+CREATE TABLE iceberg.bench.parquet_none_customer WITH (format='PARQUET', compression_codec='NONE') A
+DROP TABLE IF EXISTS iceberg.bench.parquet_none_orders
+CREATE TABLE iceberg.bench.parquet_none_orders WITH (format='PARQUET', compression_codec='NONE') AS 
+DROP TABLE IF EXISTS iceberg.bench.parquet_none_lineitem
+CREATE TABLE iceberg.bench.parquet_none_lineitem WITH (format='PARQUET', compression_codec='NONE') A
+DROP TABLE IF EXISTS iceberg.bench.parquet_zstd_customer
+CREATE TABLE iceberg.bench.parquet_zstd_customer WITH (format='PARQUET', compression_codec='ZSTD') A
+DROP TABLE IF EXISTS iceberg.bench.parquet_zstd_orders
+CREATE TABLE iceberg.bench.parquet_zstd_orders WITH (format='PARQUET', compression_codec='ZSTD') AS 
+DROP TABLE IF EXISTS iceberg.bench.parquet_zstd_lineitem
+CREATE TABLE iceberg.bench.parquet_zstd_lineitem WITH (format='PARQUET', compression_codec='ZSTD') A
+DROP TABLE IF EXISTS iceberg.bench.parquet_gzip_customer
+CREATE TABLE iceberg.bench.parquet_gzip_customer WITH (format='PARQUET', compression_codec='GZIP') A
+DROP TABLE IF EXISTS iceberg.bench.parquet_gzip_orders
+CREATE TABLE iceberg.bench.parquet_gzip_orders WITH (format='PARQUET', compression_codec='GZIP') AS 
+DROP TABLE IF EXISTS iceberg.bench.parquet_gzip_lineitem
+CREATE TABLE iceberg.bench.parquet_gzip_lineitem WITH (format='PARQUET', compression_codec='GZIP') A
+DROP TABLE IF EXISTS iceberg.bench.parquet_none_customer
+CREATE TABLE iceberg.bench.parquet_none_customer WITH (format='PARQUET', compression_codec='NONE') A
+DROP TABLE IF EXISTS iceberg.bench.parquet_none_orders
+CREATE TABLE iceberg.bench.parquet_none_orders WITH (format='PARQUET', compression_codec='NONE') AS 
+DROP TABLE IF EXISTS iceberg.bench.parquet_none_lineitem
+CREATE TABLE iceberg.bench.parquet_none_lineitem WITH (format='PARQUET', compression_codec='NONE') A
+DROP TABLE IF EXISTS iceberg.bench.orc_zstd_customer
+CREATE TABLE iceberg.bench.orc_zstd_customer WITH (format='ORC', compression_codec='ZSTD') AS SELECT
+DROP TABLE IF EXISTS iceberg.bench.orc_zstd_orders
+CREATE TABLE iceberg.bench.orc_zstd_orders WITH (format='ORC', compression_codec='ZSTD') AS SELECT *
+DROP TABLE IF EXISTS iceberg.bench.orc_zstd_lineitem
+CREATE TABLE iceberg.bench.orc_zstd_lineitem WITH (format='ORC', compression_codec='ZSTD') AS SELECT
+DROP TABLE IF EXISTS iceberg.bench.parquet_snappy_customer
+CREATE TABLE iceberg.bench.parquet_snappy_customer WITH (format='PARQUET', compression_codec='SNAPPY
+DROP TABLE IF EXISTS iceberg.bench.parquet_snappy_orders
+CREATE TABLE iceberg.bench.parquet_snappy_orders WITH (format='PARQUET', compression_codec='SNAPPY')
+DROP TABLE IF EXISTS iceberg.bench.parquet_snappy_lineitem
+CREATE TABLE iceberg.bench.parquet_snappy_lineitem WITH (format='PARQUET', compression_codec='SNAPPY
+DROP TABLE IF EXISTS iceberg.bench.parquet_zstd_customer
+CREATE TABLE iceberg.bench.parquet_zstd_customer WITH (format='PARQUET', compression_codec='ZSTD') A
+DROP TABLE IF EXISTS iceberg.bench.parquet_zstd_orders
+CREATE TABLE iceberg.bench.parquet_zstd_orders WITH (format='PARQUET', compression_codec='ZSTD') AS 
+DROP TABLE IF EXISTS iceberg.bench.parquet_zstd_lineitem
+CREATE TABLE iceberg.bench.parquet_zstd_lineitem WITH (format='PARQUET', compression_codec='ZSTD') A
+DROP TABLE IF EXISTS iceberg.bench.parquet_snappy_customer
+CREATE TABLE iceberg.bench.parquet_snappy_customer WITH (format='PARQUET', compression_codec='SNAPPY
+DROP TABLE IF EXISTS iceberg.bench.parquet_snappy_orders
+CREATE TABLE iceberg.bench.parquet_snappy_orders WITH (format='PARQUET', compression_codec='SNAPPY')
+DROP TABLE IF EXISTS iceberg.bench.parquet_snappy_lineitem
+CREATE TABLE iceberg.bench.parquet_snappy_lineitem WITH (format='PARQUET', compression_codec='SNAPPY
+DROP TABLE IF EXISTS iceberg.bench.parquet_gzip_customer
+CREATE TABLE iceberg.bench.parquet_gzip_customer WITH (format='PARQUET', compression_codec='GZIP') A
+DROP TABLE IF EXISTS iceberg.bench.parquet_gzip_orders
+CREATE TABLE iceberg.bench.parquet_gzip_orders WITH (format='PARQUET', compression_codec='GZIP') AS 
+DROP TABLE IF EXISTS iceberg.bench.parquet_gzip_lineitem
+CREATE TABLE iceberg.bench.parquet_gzip_lineitem WITH (format='PARQUET', compression_codec='GZIP') A
+DROP TABLE IF EXISTS iceberg.bench.parquet_none_customer
+CREATE TABLE iceberg.bench.parquet_none_customer WITH (format='PARQUET', compression_codec='NONE') A
+DROP TABLE IF EXISTS iceberg.bench.parquet_none_orders
+CREATE TABLE iceberg.bench.parquet_none_orders WITH (format='PARQUET', compression_codec='NONE') AS 
+DROP TABLE IF EXISTS iceberg.bench.parquet_none_lineitem
+CREATE TABLE iceberg.bench.parquet_none_lineitem WITH (format='PARQUET', compression_codec='NONE') A
+DROP TABLE IF EXISTS iceberg.bench.orc_zstd_customer
+CREATE TABLE iceberg.bench.orc_zstd_customer WITH (format='ORC', compression_codec='ZSTD') AS SELECT
+DROP TABLE IF EXISTS iceberg.bench.orc_zstd_orders
+CREATE TABLE iceberg.bench.orc_zstd_orders WITH (format='ORC', compression_codec='ZSTD') AS SELECT *
+DROP TABLE IF EXISTS iceberg.bench.orc_zstd_lineitem
+CREATE TABLE iceberg.bench.orc_zstd_lineitem WITH (format='ORC', compression_codec='ZSTD') AS SELECT
+SELECT l.orderkey,
+SELECT l.orderkey,
+SELECT l.orderkey,
+SELECT l.orderkey,
+SELECT l.orderkey,
+SELECT l.orderkey,
+SELECT l.orderkey,
+SELECT l.orderkey,
+SELECT l.orderkey,
+SELECT l.orderkey,
+SELECT l.orderkey,
+SELECT l.orderkey,
+SELECT l.orderkey,
+SELECT l.orderkey,
+SELECT l.orderkey,
+SELECT l.orderkey,
+SELECT l.orderkey,
+SELECT l.orderkey,
+SELECT l.orderkey,
+SELECT l.orderkey,
+SELECT l.orderkey,
+SELECT l.orderkey,
+SELECT l.orderkey,
+SELECT l.orderkey,
+SELECT l.orderkey,
+CREATE TABLE iceberg.demo.snapshot_demo AS SELECT * FROM iceberg.silver.order_lines
+ALTER TABLE iceberg.demo.snapshot_demo ADD COLUMN source_system VARCHAR
+ALTER TABLE iceberg.demo.snapshot_demo RENAME COLUMN source_system TO data_origin
+DELETE FROM iceberg.demo.snapshot_demo WHERE orderkey=(SELECT min(orderkey) FROM iceberg.demo.snapsh
+ALTER TABLE iceberg.demo.snapshot_demo EXECUTE rollback_to_snapshot(5875152496857109988)
+All checks passed. Results saved.

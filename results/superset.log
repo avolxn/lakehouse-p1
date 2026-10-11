@@ -1,0 +1,8 @@
+Loaded your LOCAL configuration at [/app/pythonpath/superset_config.py]
+2026-10-11 14:57:34,311:WARNING:superset.initialization:We haven't found any Content Security Policy (CSP) defined in the configurations. Please make sure to configure CSP using the TALISMAN_ENABLED and TALISMAN_CONFIG keys or any other external software. Failing to configure CSP have serious security implications. Check https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP for more information. You can disable this warning using the CONTENT_SECURITY_POLICY_WARNING key.
+/usr/local/lib/python3.10/site-packages/flask_limiter/extension.py:333: UserWarning: Using the in-memory storage for tracking rate limits as no storage was explicitly specified. This is not recommended for production use. See: https://flask-limiter.readthedocs.io#configuring-a-storage-backend for documentation about configuring the storage backend.
+  warnings.warn(
+2026-10-11 14:57:34,443:INFO:superset.utils.screenshots:No PIL installation found
+2026-10-11 14:57:34,808:INFO:superset.utils.pdf:No PIL installation found
+2026-10-11 14:57:40,156:WARNING:root:user
+BRONZE_PROOF=[{"table_name":"orders","rows":1500000},{"table_name":"lineitem","rows":6001215},{"table_name":"customer","rows":150000}]

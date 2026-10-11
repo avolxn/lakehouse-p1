@@ -1,0 +1,77 @@
+name: eld-vlad-lakehouse
+services:
+  postgres:
+    image: postgres:17.5
+    environment:
+      POSTGRES_PASSWORD: local-postgres
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck:
+      test: [CMD-SHELL, pg_isready -U postgres]
+      interval: 3s
+      retries: 30
+  minio:
+    image: eld-minio:2025-04-22
+    build: ./config/minio
+    command: server /data --console-address :9001
+    environment:
+      MINIO_ROOT_USER: lakehouse
+      MINIO_ROOT_PASSWORD: local-minio-password
+    ports: ["127.0.0.1:19000:9000", "127.0.0.1:19001:9001"]
+    volumes: [s3data:/data]
+    healthcheck:
+      test: [CMD, curl, -f, http://localhost:9000/minio/health/live]
+      interval: 3s
+      retries: 30
+  bucket:
+    image: eld-minio:2025-04-22
+    build: ./config/minio
+    depends_on:
+      minio: {condition: service_healthy}
+    entrypoint: /bin/sh
+    command: ["-c", "mc alias set local http://minio:9000 lakehouse local-minio-password && mc mb --ignore-existing local/lakehouse"]
+  migrate:
+    image: quay.io/lakekeeper/catalog:v0.9.5
+    command: migrate
+    environment: &lakekeeper_env
+      LAKEKEEPER__PG_ENCRYPTION_KEY: local-only-encryption-key
+      LAKEKEEPER__PG_DATABASE_URL_READ: postgresql://postgres:local-postgres@postgres:5432/postgres
+      LAKEKEEPER__PG_DATABASE_URL_WRITE: postgresql://postgres:local-postgres@postgres:5432/postgres
+      RUST_LOG: info
+    depends_on:
+      postgres: {condition: service_healthy}
+  lakekeeper:
+    image: quay.io/lakekeeper/catalog:v0.9.5
+    command: serve
+    environment: *lakekeeper_env
+    ports: ["127.0.0.1:18181:8181"]
+    depends_on:
+      migrate: {condition: service_completed_successfully}
+      bucket: {condition: service_completed_successfully}
+    healthcheck:
+      test: [CMD, /home/nonroot/lakekeeper, healthcheck]
+      interval: 3s
+      retries: 30
+  trino:
+    image: trinodb/trino:479
+    ports: ["127.0.0.1:18080:8080"]
+    volumes:
+      - ./config/trino/catalog:/etc/trino/catalog:ro
+      - ./config/trino/config.properties:/etc/trino/config.properties:ro
+      - ./config/trino/jvm.config:/etc/trino/jvm.config:ro
+    depends_on:
+      lakekeeper: {condition: service_healthy}
+  superset:
+    build: ./config/superset
+    ports: ["127.0.0.1:18088:8088"]
+    environment:
+      SUPERSET_CONFIG_PATH: /app/pythonpath/superset_config.py
+    volumes:
+      - supersetdata:/app/superset_home
+      - ./config/superset/superset_config.py:/app/pythonpath/superset_config.py:ro
+      - ./scripts/superset_bronze.py:/app/superset_bronze.py:ro
+    depends_on: [trino]
+    command: ["/bin/sh", "-c", "superset db upgrade && superset fab create-admin --username admin --firstname Local --lastname Student --email admin@localhost --password local-admin-password && superset init && gunicorn --bind 0.0.0.0:8088 --workers 2 --timeout 120 'superset.app:create_app()'"]
+volumes:
+  pgdata:
+  s3data:
+  supersetdata:

@@ -1,0 +1,35 @@
+[
+  {
+    "layer": "bronze",
+    "table": "customer",
+    "rows": 150000,
+    "bytes": 239705,
+    "write_seconds": 11.721530666996841
+  },
+  {
+    "layer": "bronze",
+    "table": "orders",
+    "rows": 1500000,
+    "bytes": 6986254,
+    "write_seconds": 29.34144808400015
+  },
+  {
+    "layer": "bronze",
+    "table": "lineitem",
+    "rows": 6001215,
+    "bytes": 41454940,
+    "write_seconds": 74.73165941599291
+  },
+  {
+    "layer": "silver",
+    "table": "order_lines",
+    "rows": 30519,
+    "bytes": 483472
+  },
+  {
+    "layer": "gold",
+    "table": "shipping_priority",
+    "rows": 10,
+    "bytes": 841
+  }
+]

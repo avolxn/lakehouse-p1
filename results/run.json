@@ -1,0 +1,56 @@
+{
+  "status": "complete",
+  "parameters": {
+    "scale": 1,
+    "write_repeats": 3,
+    "query_repeats": 5
+  },
+  "host": "Darwin-25.2.0-arm64-arm-64bit-Mach-O",
+  "docker": {
+    "ServerVersion": "27.3.1",
+    "NCPU": 8,
+    "MemTotal": 7268040704,
+    "Architecture": "aarch64"
+  },
+  "started_utc": "2026-10-11T14:40:01.508371+00:00",
+  "finished_utc": "2026-10-11T14:54:52.422778+00:00",
+  "trino_version": [
+    [
+      "479"
+    ]
+  ],
+  "containers": [
+    {
+      "Service": "lakekeeper",
+      "Name": "eld-vlad-lakehouse-lakekeeper-1",
+      "State": "running",
+      "Health": "healthy",
+      "Image": "quay.io/lakekeeper/catalog:v0.9.5",
+      "ID": "488f9f63c626"
+    },
+    {
+      "Service": "minio",
+      "Name": "eld-vlad-lakehouse-minio-1",
+      "State": "running",
+      "Health": "healthy",
+      "Image": "eld-minio:2025-04-22",
+      "ID": "a377362dd3d9"
+    },
+    {
+      "Service": "postgres",
+      "Name": "eld-vlad-lakehouse-postgres-1",
+      "State": "running",
+      "Health": "healthy",
+      "Image": "postgres:17.5",
+      "ID": "c16748d40b98"
+    },
+    {
+      "Service": "trino",
+      "Name": "eld-vlad-lakehouse-trino-1",
+      "State": "running",
+      "Health": "healthy",
+      "Image": "trinodb/trino:479",
+      "ID": "3dfbf8efc31c"
+    }
+  ]
+}

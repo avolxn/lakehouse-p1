@@ -1,0 +1,10 @@
+{
+  "customer_duplicate_keys": 0,
+  "orders_duplicate_keys": 0,
+  "lineitem_duplicate_keys": 0,
+  "invalid_customer": 0,
+  "invalid_orders": 0,
+  "invalid_lineitem": 0,
+  "orphan_orders": 0,
+  "orphan_lineitem": 0
+}

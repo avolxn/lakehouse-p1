@@ -1,0 +1,6 @@
+NAME                              IMAGE                               COMMAND                  SERVICE      CREATED          STATUS                    PORTS
+eld-vlad-lakehouse-lakekeeper-1   quay.io/lakekeeper/catalog:v0.9.5   "/home/nonroot/lakek…"   lakekeeper   19 minutes ago   Up 19 minutes (healthy)   127.0.0.1:18181->8181/tcp
+eld-vlad-lakehouse-minio-1        eld-minio:2025-04-22                "minio server /data …"   minio        19 minutes ago   Up 19 minutes (healthy)   127.0.0.1:19000->9000/tcp, 127.0.0.1:19001->9001/tcp
+eld-vlad-lakehouse-postgres-1     postgres:17.5                       "docker-entrypoint.s…"   postgres     28 minutes ago   Up 28 minutes (healthy)   5432/tcp
+eld-vlad-lakehouse-superset-1     eld-vlad-lakehouse-superset         "/bin/sh -c 'superse…"   superset     3 minutes ago    Up 2 minutes (healthy)    127.0.0.1:18088->8088/tcp
+eld-vlad-lakehouse-trino-1        trinodb/trino:479                   "/usr/lib/trino/bin/…"   trino        19 minutes ago   Up 19 minutes (healthy)   127.0.0.1:18080->8080/tcp
